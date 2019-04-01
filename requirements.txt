@@ -1,8 +1,6 @@
 Django==1.10
 opencv-python==4.0.0.21
 numpy==1.14.3
-torch==0.4.1
-torchvision==0.2.2
 tensorflow==1.13.1
 matplotlib==3.0.1
 sklearn==0.0
