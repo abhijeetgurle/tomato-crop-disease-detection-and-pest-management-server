@@ -1,0 +1,10 @@
+Django==1.10
+cv2
+numpy==1.14.3
+torch==0.4.1
+torchvision==0.2.2
+tensorflow==1.13.1
+matplotlib==3.0.1
+sklearn==0.0
+Keras==2.2.4
+haversine==2.0.0

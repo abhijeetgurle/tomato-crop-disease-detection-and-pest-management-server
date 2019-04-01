@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Welcome to PDDA</title>
+</head>
+<body>
+	
+<h2>This is the homepage of the plant disease detection app!</h2>
+	<form action="/upload_image_and_get_results/" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<input type="file" name="crop_image" accept="image/*" required="required"> <br>
+		Crop Name<input type="text" name="crop_name"> <br>
+		<input id="dialog" type="submit" class="btn btn-primary" value="Upload!">
+	</form>
+</body>
+</html>
