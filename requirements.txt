@@ -8,3 +8,11 @@ matplotlib==3.0.1
 sklearn==0.0
 Keras==2.2.4
 haversine==2.0.0
+dj-database-url
+dj-static
+gunicorn
+Unipath
+python-decouple
+psycopg2
+whitenoise
+pytz
