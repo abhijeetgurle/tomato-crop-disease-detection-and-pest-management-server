@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.template import loader
 from django.core.files.images import ImageFile
 from django.core.files import File
-from PIL import Image
+import Image
 import numpy as np
 from django.http import JsonResponse
 #import torch.utils.model_zoo as model_zoo
