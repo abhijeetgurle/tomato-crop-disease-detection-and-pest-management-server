@@ -84,6 +84,7 @@ with open(os.path.join(settings.BASE_DIR, "plant_labels.json")) as f:
 loaded_model= load_model('Tomato_diseases.h5')
 loaded_model._make_predict_function()
 class_names = {0:'bacterial_spot',1:'Healthy',2:'late_blight',3:'leaf_mold',4:'septorial_leaf_spot',5:'mosaic_virus',6:'yelow_curved'}
+pesticide_names = {'bacterial_spot':'Sulfur_based_fungicides', 'Healthy':'', 'late_blight':'Copper_based_fungicides', 					   'leaf_mold':'Chlorothalonil_compound', 'septorial_leaf_spot':'Copper_based_fungicides',    							   'mosaic_virus':'Harvest_guard', 'yelow_curved':'Imidacloprid_Spray'}
 
 @csrf_exempt
 def home(request):
@@ -129,7 +130,7 @@ def upload_image_and_get_results(request):
 			result_dict[class_names[i]] = out[0][i]
 
 		result_tuple = sorted(result_dict.items(), key=lambda kv: kv[1], reverse=True)
-		print("category_name:" + str(result_tuple[0][0]) + " Probability:" + str(result_tuple[0][1]))
+		print("category_name:" + str(result_tuple[0][0]) + " Probability:" + str(result_tuple[0][1]) + " pesticide" + pesticide_names[result_tuple[0][0]])
 
 		num_predictions = 5
 		# Fetch from json
@@ -141,6 +142,7 @@ def upload_image_and_get_results(request):
 				'category'		: 	i,
 				'category_name'	:  	result_tuple[i][0],
 				'prob'			:	str(result_tuple[i][1]),
+				'pesticide_name':	pesticide_names[result_tuple[i][0]], 
 			})
 
 		output_dict = final
